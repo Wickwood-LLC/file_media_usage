@@ -8,3 +8,4 @@ dependencies:
 - entity_embed_usage:entity_embed_usage
 - media:media
 - file:file
+- views_entity_reference:views_entity_reference
