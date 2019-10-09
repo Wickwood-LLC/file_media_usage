@@ -5,3 +5,6 @@ package: Media
 core: 8.x
 dependencies:
 - views:views
+- entity_embed_usage:entity_embed_usage
+- media:media
+- file:file
