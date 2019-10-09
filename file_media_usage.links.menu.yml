@@ -1,0 +1,17 @@
+view.file_usage.page:
+  title: 'File Media Usage'
+  parent: system.admin_content
+  description: 'Manage media types.'
+  route_name: view.file_usage.page
+
+view.media_embeds.page:
+  title: 'Media Embeds'
+  parent: view.file_usage.page
+  description: 'Manage media types.'
+  route_name: view.file_usage.page
+  
+view.media_references.page:
+  title: 'Media References'
+  parent: view.file_usage.page
+  description: 'Manage media types.'
+  route_name: view.media_references.page

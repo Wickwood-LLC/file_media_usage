@@ -1,0 +1,7 @@
+name: 'File Media Usage'
+type: module
+description: 'Provides pre-built views helping to track file and media usage across the site.'
+package: Media
+core: 8.x
+dependencies:
+- views:views

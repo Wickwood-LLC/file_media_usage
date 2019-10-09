@@ -1,0 +1,594 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.media_library
+  module:
+    - media
+    - user
+    - views_entity_reference
+id: media_references
+label: 'Media references'
+module: views
+description: ''
+tag: ''
+base_table: media_field_data
+base_field: mid
+core: 8.x
+display:
+  default:
+    display_plugin: default
+    id: default
+    display_title: Master
+    position: 0
+    display_options:
+      access:
+        type: perm
+        options:
+          perm: 'view media'
+      cache:
+        type: tag
+        options: {  }
+      query:
+        type: views_query
+        options:
+          disable_sql_rewrite: false
+          distinct: false
+          replica: false
+          query_comment: ''
+          query_tags: {  }
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Apply
+          reset_button: true
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: true
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      pager:
+        type: full
+        options:
+          items_per_page: 25
+          offset: 0
+          id: 0
+          total_pages: null
+          tags:
+            previous: ‹‹
+            next: ››
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
+      style:
+        type: table
+        options:
+          grouping:
+            -
+              field: rendered_entity
+              rendered: true
+              rendered_strip: false
+          row_class: ''
+          default_row_class: true
+          override: true
+          sticky: false
+          caption: ''
+          summary: ''
+          description: ''
+          columns:
+            rendered_entity: rendered_entity
+            bundle: bundle
+            entity_id: entity_id
+            entity_type: entity_type
+            entity_view_url: entity_view_url
+          info:
+            rendered_entity:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            bundle:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            entity_id:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            entity_type:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            entity_view_url:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+          default: '-1'
+          empty_table: false
+      row:
+        type: fields
+        options:
+          inline: {  }
+          separator: ''
+          hide_empty: false
+          default_field_elements: true
+      fields:
+        rendered_entity:
+          id: rendered_entity
+          table: media
+          field: rendered_entity
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          view_mode: media_library
+          entity_type: media
+          plugin_id: rendered_entity
+        bundle:
+          id: bundle
+          table: entity_references_media
+          field: bundle
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Referencing Entity Bundle'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        entity_id:
+          id: entity_id
+          table: entity_references_media
+          field: entity_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Referencing Entity ID'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        entity_type:
+          id: entity_type
+          table: entity_references_media
+          field: entity_type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Referencing Entity Type'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        entity_view_url:
+          id: entity_view_url
+          table: entity_references_media
+          field: entity_view_url
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Operations
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          display_as: link
+          plugin_id: referencing_entity_url
+      filters:
+        bundle:
+          id: bundle
+          table: entity_references_media
+          field: bundle
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value:
+            block_content: block_content
+            'block_content:basic': 'block_content:basic'
+            node: node
+            'node:page': 'node:page'
+            'node:panel': 'node:panel'
+            'node:story': 'node:story'
+          group: 1
+          exposed: true
+          expose:
+            operator_id: bundle_op
+            label: 'Referencing Entity Type'
+            description: ''
+            use_operator: false
+            operator: bundle_op
+            identifier: bundle
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              contributor: '0'
+              editor: '0'
+              administrator: '0'
+            reduce: true
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: views_entity_reference_entity_type_bundle
+        name:
+          id: name
+          table: media_field_data
+          field: name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: name_op
+            label: 'Media Name'
+            description: ''
+            use_operator: true
+            operator: name_op
+            identifier: name
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              contributor: '0'
+              editor: '0'
+              administrator: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: 'Media Name'
+            description: ''
+            identifier: name
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: ''
+                operator: '='
+                value: ''
+              2:
+                title: ''
+                operator: '='
+                value: ''
+              3:
+                title: ''
+                operator: '='
+                value: ''
+          entity_type: media
+          entity_field: name
+          plugin_id: string
+      sorts:
+        created:
+          id: created
+          table: media_field_data
+          field: created
+          order: DESC
+          entity_type: media
+          entity_field: created
+          plugin_id: date
+          relationship: none
+          group_type: group
+          admin_label: ''
+          exposed: false
+          expose:
+            label: ''
+          granularity: second
+      header: {  }
+      footer: {  }
+      empty: {  }
+      relationships: {  }
+      arguments: {  }
+      display_extenders: {  }
+      title: 'Media Usage'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user.permissions
+      tags:
+        - 'config:core.entity_view_display.media.application.default'
+        - 'config:core.entity_view_display.media.application.media_library'
+        - 'config:core.entity_view_display.media.audio.default'
+        - 'config:core.entity_view_display.media.audio.link'
+        - 'config:core.entity_view_display.media.audio.media_library'
+        - 'config:core.entity_view_display.media.audio.player'
+        - 'config:core.entity_view_display.media.default.default'
+        - 'config:core.entity_view_display.media.default.media_library'
+        - 'config:core.entity_view_display.media.document.default'
+        - 'config:core.entity_view_display.media.document.link'
+        - 'config:core.entity_view_display.media.document.media_library'
+        - 'config:core.entity_view_display.media.image.default'
+        - 'config:core.entity_view_display.media.image.full'
+        - 'config:core.entity_view_display.media.image.link'
+        - 'config:core.entity_view_display.media.image.media_library'
+        - 'config:core.entity_view_display.media.image.teaser'
+        - 'config:core.entity_view_display.media.remote_video.default'
+        - 'config:core.entity_view_display.media.remote_video.link'
+        - 'config:core.entity_view_display.media.remote_video.media_library'
+        - 'config:core.entity_view_display.media.remote_video.player'
+        - 'config:core.entity_view_display.media.video.default'
+        - 'config:core.entity_view_display.media.video.link'
+        - 'config:core.entity_view_display.media.video.media_library'
+        - 'config:core.entity_view_display.media.video.player'
+        - 'config:core.entity_view_display.media.video.teaser'
+  page:
+    display_plugin: page
+    id: page
+    display_title: Page
+    position: 1
+    display_options:
+      display_extenders: {  }
+      path: admin/content/file-media-usage/media-references
+      menu:
+        type: none
+        title: References
+        description: 'Referring media though entity refence fields.'
+        expanded: false
+        parent: admin_toolbar_tools.media_page
+        weight: 11
+        context: '0'
+        menu_name: admin
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user.permissions
+      tags:
+        - 'config:core.entity_view_display.media.application.default'
+        - 'config:core.entity_view_display.media.application.media_library'
+        - 'config:core.entity_view_display.media.audio.default'
+        - 'config:core.entity_view_display.media.audio.link'
+        - 'config:core.entity_view_display.media.audio.media_library'
+        - 'config:core.entity_view_display.media.audio.player'
+        - 'config:core.entity_view_display.media.default.default'
+        - 'config:core.entity_view_display.media.default.media_library'
+        - 'config:core.entity_view_display.media.document.default'
+        - 'config:core.entity_view_display.media.document.link'
+        - 'config:core.entity_view_display.media.document.media_library'
+        - 'config:core.entity_view_display.media.image.default'
+        - 'config:core.entity_view_display.media.image.full'
+        - 'config:core.entity_view_display.media.image.link'
+        - 'config:core.entity_view_display.media.image.media_library'
+        - 'config:core.entity_view_display.media.image.teaser'
+        - 'config:core.entity_view_display.media.remote_video.default'
+        - 'config:core.entity_view_display.media.remote_video.link'
+        - 'config:core.entity_view_display.media.remote_video.media_library'
+        - 'config:core.entity_view_display.media.remote_video.player'
+        - 'config:core.entity_view_display.media.video.default'
+        - 'config:core.entity_view_display.media.video.link'
+        - 'config:core.entity_view_display.media.video.media_library'
+        - 'config:core.entity_view_display.media.video.player'
+        - 'config:core.entity_view_display.media.video.teaser'

@@ -1,0 +1,28 @@
+# view.media_usage.file_usage:
+#   title: 'File Media Usage'
+#   route_name: view.media_usage.file_usage
+#   base_route: system.admin_content
+#   weight: 10
+
+view.file_usage.page:
+  title: 'File Media Usage'
+  route_name: view.file_usage.page
+  base_route: system.admin_content
+  weight: 50
+
+file_media_usage.file_usage:
+  title: 'File Usage'
+  parent_id: view.file_usage.page
+  route_name: view.file_usage.page
+  weight: 20
+
+file_media_usage.media_embeds:
+  title: 'Media Embeds'
+  parent_id: view.file_usage.page
+  route_name: view.media_embeds.page
+  weight: 30
+file_media_usage.media_references:
+  title: 'Media References'
+  parent_id: view.file_usage.page
+  route_name: view.media_references.page
+  weight: 40
