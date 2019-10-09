@@ -21,6 +21,7 @@ file_media_usage.media_embeds:
   parent_id: view.file_usage.page
   route_name: view.media_embeds.page
   weight: 30
+
 file_media_usage.media_references:
   title: 'Media References'
   parent_id: view.file_usage.page

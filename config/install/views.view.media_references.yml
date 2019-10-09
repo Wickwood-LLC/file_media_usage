@@ -508,7 +508,7 @@ display:
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
-      title: 'Media Usage'
+      title: 'File Media Usage'
     cache_metadata:
       max-age: -1
       contexts:

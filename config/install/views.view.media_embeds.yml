@@ -709,7 +709,7 @@ display:
       arguments: {  }
       display_extenders: {  }
       group_by: false
-      title: 'Media Usage'
+      title: 'File Media Usage'
     cache_metadata:
       max-age: -1
       contexts:

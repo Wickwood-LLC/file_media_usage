@@ -823,6 +823,7 @@ display:
           plugin_id: standard
       arguments: {  }
       display_extenders: {  }
+      title: 'File Media Usage'
     cache_metadata:
       max-age: -1
       contexts:
