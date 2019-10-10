@@ -8,6 +8,10 @@ dependencies:
     - media
     - node
     - user
+    - file_media_usage
+  enforced:
+    module:
+      - file_media_usage
 id: media_embeds
 label: 'Media Embeds'
 module: views

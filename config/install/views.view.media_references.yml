@@ -7,6 +7,10 @@ dependencies:
     - media
     - user
     - views_entity_reference
+    - file_media_usage
+  enforced:
+    module:
+      - file_media_usage
 id: media_references
 label: 'Media references'
 module: views
