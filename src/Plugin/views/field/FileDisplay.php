@@ -8,6 +8,7 @@ use Drupal\views\ViewExecutable;
 use Drupal\views\Plugin\views\field\Standard;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Template\Attribute;
+use Drupal\Core\Url;
 
 /**
  * Default implementation of the base field plugin.
@@ -42,7 +43,6 @@ class FileDisplay extends Standard {
    */
   public function buildOptionsForm(&$form, FormStateInterface $form_state) {
     parent::buildOptionsForm($form, $form_state);
-    // Do here.
   }
 
   /**
@@ -77,12 +77,22 @@ class FileDisplay extends Standard {
         ],
       ];
     }
+    else if (preg_match('~^audio/.+~', $filemime)) {
+      return [
+        '#theme' => 'file_audio',
+        '#attributes' => (new Attribute())->setAttribute('controls', 'controls'),
+        '#files' => [
+          ['source_attributes' => (new Attribute())->setAttribute('src', file_create_url($uri))->setAttribute('type', $file->getMimeType()),],
+        ],
+      ];
+    }
     else  {
       return array(
         '#type' => 'link',
-        '#title' => $file->filename,
-        '#url' => file_create_url($url),
+        '#title' => $file->get('filename')->value,
+        '#url' => Url::fromUri(file_create_url($uri)),
       );
+      //return Link::fromTextAndUrl($file->get('filename')->value, Url::fromUri(file_create_url($uri)))->toString();
     }
   }
 }
