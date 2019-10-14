@@ -92,7 +92,6 @@ class FileDisplay extends Standard {
         '#title' => $file->get('filename')->value,
         '#url' => Url::fromUri(file_create_url($uri)),
       );
-      //return Link::fromTextAndUrl($file->get('filename')->value, Url::fromUri(file_create_url($uri)))->toString();
     }
   }
 }
