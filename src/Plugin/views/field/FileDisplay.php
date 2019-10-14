@@ -33,7 +33,9 @@ class FileDisplay extends Standard {
    */
   protected function defineOptions() {
     $options = parent::defineOptions();
-    $options['display_as'] = ['default' => 'link'];
+    $options['image_style'] = ['default' => 'thumbnail'];
+    $options['video_width'] = ['default' => 600];
+    $options['video_height'] = ['default' => 400];
 
     return $options;
   }
@@ -43,6 +45,26 @@ class FileDisplay extends Standard {
    */
   public function buildOptionsForm(&$form, FormStateInterface $form_state) {
     parent::buildOptionsForm($form, $form_state);
+
+    $form['image_style'] = [
+      '#type' => 'select',
+      '#title' => $this->t('Image style for image'),
+      '#description' => $this->t('Image style to use for images.'),
+      '#default_value' => $this->options['image_style'],
+      '#options' => image_style_options(FALSE),
+    ];
+
+    $form['video_width'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Video width'),
+      '#default_value' => $this->options['video_width'],
+    ];
+
+    $form['video_height'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Video width'),
+      '#default_value' => $this->options['video_height'],
+    ];
   }
 
   /**
@@ -64,14 +86,18 @@ class FileDisplay extends Standard {
         '#theme' => 'image_style',
         // '#width' => $variables['width'],
         // '#height' => $variables['height'],
-        '#style_name' => 'thumbnail',
+        '#style_name' => $this->options['image_style'],
         '#uri' => $uri,
       ];
     }
     else if (preg_match('~^video/.+~', $filemime)) {
+      $video_attributes = (new Attribute())
+        ->setAttribute('controls', 'controls')
+        ->setAttribute('width', $this->options['video_width'])
+        ->setAttribute('height', $this->options['video_height']);
       return [
         '#theme' => 'file_video',
-        '#attributes' => (new Attribute())->setAttribute('controls', 'controls'),
+        '#attributes' => $video_attributes,
         '#files' => [
           ['source_attributes' => (new Attribute())->setAttribute('src', file_create_url($uri))->setAttribute('type', $file->getMimeType()),],
         ],
