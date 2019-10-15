@@ -1,16 +1,16 @@
 langcode: en
 status: true
 dependencies:
-  module:
-    - entity_embed_usage
-    - file
-    - media
-    - node
-    - user
-    - file_media_usage
   enforced:
     module:
       - file_media_usage
+  module:
+    - entity_embed_usage
+    - file
+    - file_media_usage
+    - media
+    - node
+    - user
 id: file_usage
 label: 'File usage'
 module: views
@@ -413,6 +413,59 @@ display:
           prefix: ''
           suffix: ''
           plugin_id: numeric
+        display:
+          id: display
+          table: file_managed
+          field: display
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: File
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          image_style: medium
+          video_width: '300'
+          video_height: '200'
+          entity_type: file
+          plugin_id: file_display
         nothing:
           id: nothing
           table: views
@@ -424,7 +477,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: 'FID: {{ fid}}, File name: {{ filename }}, Usage count: {{ count }}'
+            text: 'FID: {{ fid}}, File name: {{ filename }}, Usage count: {{ count }}, Preview: {{ display }}'
             make_link: false
             path: ''
             absolute: false
@@ -791,8 +844,109 @@ display:
           entity_type: node
           entity_field: revision_timestamp
           plugin_id: field
-      filters: {  }
-      sorts: {  }
+      filters:
+        filemime:
+          id: filemime
+          table: file_managed
+          field: filemime
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: filemime_op
+            label: 'File MIME type'
+            description: ''
+            use_operator: true
+            operator: filemime_op
+            identifier: filemime
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              contributor: '0'
+              editor: '0'
+              administrator: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: file
+          entity_field: filemime
+          plugin_id: string
+        filename:
+          id: filename
+          table: file_managed
+          field: filename
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: filename_op
+            label: Filename
+            description: ''
+            use_operator: true
+            operator: filename_op
+            identifier: filename
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              contributor: '0'
+              editor: '0'
+              administrator: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: file
+          entity_field: filename
+          plugin_id: string
+      sorts:
+        created:
+          id: created
+          table: file_managed
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: true
+          expose:
+            label: Created
+          granularity: second
+          entity_type: file
+          entity_field: created
+          plugin_id: date
       header: {  }
       footer: {  }
       empty: {  }
@@ -833,7 +987,10 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
         - user.permissions
       tags: {  }
   page:
@@ -849,6 +1006,9 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
         - user.permissions
       tags: {  }
