@@ -2,7 +2,7 @@ name: 'File Media Usage'
 type: module
 description: 'Provides pre-built views helping to track file and media usage across the site.'
 package: Media
-core: 8.x
+core_version_requirement: ^8 || ^9
 dependencies:
 - views:views
 - entity_embed_usage:entity_embed_usage
