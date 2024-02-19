@@ -99,7 +99,7 @@ class FileDisplay extends Standard {
         '#theme' => 'file_video',
         '#attributes' => $video_attributes,
         '#files' => [
-          ['source_attributes' => (new Attribute())->setAttribute('src', file_create_url($uri))->setAttribute('type', $file->getMimeType()),],
+          ['source_attributes' => (new Attribute())->setAttribute('src', \Drupal::service('file_url_generator')->generateAbsoluteString($uri))->setAttribute('type', $file->getMimeType()),],
         ],
       ];
     }
@@ -108,7 +108,7 @@ class FileDisplay extends Standard {
         '#theme' => 'file_audio',
         '#attributes' => (new Attribute())->setAttribute('controls', 'controls'),
         '#files' => [
-          ['source_attributes' => (new Attribute())->setAttribute('src', file_create_url($uri))->setAttribute('type', $file->getMimeType()),],
+          ['source_attributes' => (new Attribute())->setAttribute('src', \Drupal::service('file_url_generator')->generateAbsoluteString($uri))->setAttribute('type', $file->getMimeType()),],
         ],
       ];
     }
@@ -116,7 +116,7 @@ class FileDisplay extends Standard {
       return array(
         '#type' => 'link',
         '#title' => $file->get('filename')->value,
-        '#url' => Url::fromUri(file_create_url($uri)),
+        '#url' => \Drupal::service('file_url_generator')->generate($uri),
       );
     }
   }
